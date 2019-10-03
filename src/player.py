@@ -11,19 +11,25 @@ class Player:
     def move_p(self, direction):
         if getattr(self.current_room, f'{direction}_to') is not None:
             self.current_room = getattr(self.current_room, f'{direction}_to')
-            print(f'{self.current_room.name}.\n{self.current_room.description}')
-            print(f'Backpack: {self.backpack}')
+            print(
+                f'\n=============\n {self.current_room.name}.\n{self.current_room.description} \n=============')
+            print(
+                f'\n-------------\n Backpack: {self.backpack} \n-------------')
         else:
             print(f"\n#############\n Can't go that way! \n#############")
 
     def item_act(self, act, item):
+        print(type(self.current_room.items))
+        print(type(item))
         if act == 'pickup':
-            if item in self.current_room.items:
+            if (item in self.current_room.items):
                 self.backpack.append(item)
-                print(f'You picked up the {item}!')
+                print(
+                    f'\n#############\n You picked up the {item}! \n#############')
             else:
-                print(f"Uhm, you can't do that...")
+                print(f"\n#############\n Uhm, you can't do that... \n#############")
         elif act == 'drop':
             self.backpack.remove(item)
             self.current_room.items.append(item)
-            print(f'You dropped the {item}...')
+            print(
+                f'\n#############\n You dropped the {item}... \n#############')
