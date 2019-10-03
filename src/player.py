@@ -15,3 +15,15 @@ class Player:
             print(f'Backpack: {self.backpack}')
         else:
             print(f"\n#############\n Can't go that way! \n#############")
+
+    def item_act(self, act, item):
+        if act == 'pickup':
+            if item in self.current_room.items:
+                self.backpack.append(item)
+                print(f'You picked up the {item}!')
+            else:
+                print(f"Uhm, you can't do that...")
+        elif act == 'drop':
+            self.backpack.remove(item)
+            self.current_room.items.append(item)
+            print(f'You dropped the {item}...')
