@@ -4,13 +4,14 @@ from item import Item
 
 # Declare all items
 
-flamethrower: Item(
+flamethrower = Item(
     'Flamethrower', "Holy crap! A flamethrower! It has a warning: don't use unless trained.")
-manual: Item('Flamethrower Training Manual',
-             "Detailed instructions on how to not blow yourself up.")
-spoon: Item('Vorpal Spoon', "Good against monsters made of soup ... or stew.")
-shield: Item('Shield of Detritus',
-             "A lovely shield made of coral. Technically, dead things.")
+manual = Item('Manual',
+              "Detailed instructions on how to not blow yourself up.")
+spoon = Item(
+    'Spoon', "This vorpal spoon is good against monsters made of soup ... or stew.")
+shield = Item('Shield',
+              "The Shield of Detritus! A lovely shield made of coral. Technically, dead things.")
 
 
 # Declare all the rooms

@@ -22,12 +22,20 @@ class Player:
         print(type(self.current_room.items))
         print(type(item))
         if act == 'pickup':
-            if (item in self.current_room.items):
-                self.backpack.append(item)
+            pickup_item, pickup_idx = None, None
+            for idx, i in enumerate(self.current_room.items):
+                if i.name.lower() == item.lower():
+                    pickup_idx = idx
+                    pickup_item = i
+                    break
+            if not pickup_item:
+                print(
+                    f"\n#############\n Uhm, you can't do that... \n#############")
+            else:
+                self.backpack.append(self.current_room.items.pop(pickup_idx))
                 print(
                     f'\n#############\n You picked up the {item}! \n#############')
-            else:
-                print(f"\n#############\n Uhm, you can't do that... \n#############")
+
         elif act == 'drop':
             self.backpack.remove(item)
             self.current_room.items.append(item)
